@@ -10,6 +10,8 @@ from django.views.decorators.csrf import csrf_exempt
 from stateApp.models import Location
 from django.views import View
 from django.utils.decorators import method_decorator
+from django.conf import settings
+
 
 
 def signup(request):
@@ -39,6 +41,7 @@ class SearchStateView(View):
     @method_decorator(login_required,csrf_exempt)
     def get(self, request, *args, **kwargs):
         city = request.GET.get('city',None)
+        print(settings.STATIC_ROOT)
         if city:
             url = "http://maps.googleapis.com/maps/api/geocode/json?address="+city + "&sensor=false"
             # fetching the data from google api , can also be done on frontend
