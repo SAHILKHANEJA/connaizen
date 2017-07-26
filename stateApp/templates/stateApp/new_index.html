@@ -31,7 +31,7 @@
 		console.log(data);
 		function add_to_db(){
 			$.ajax({
-				url : '/stateapp/index/',
+				url : '/stateapp/searchState/',
     			method:'POST',
     			datatype:'json',
     			data:data,
@@ -39,7 +39,7 @@
     				window.location.href = window.location.origin + data;
     			},
     			error:function(){
-    				window.location.href = window.location.origin + '/stateapp/savelocation/';
+    				window.location.href = window.location.origin + '/stateapp/getLocations/';
     			}
 			});
 		}

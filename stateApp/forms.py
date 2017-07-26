@@ -5,15 +5,15 @@ from stateApp.models import Location
 
 
 
-class Login_form(forms.Form):
-	username = forms.CharField(label = "Your name",max_length = "100")
-	password = forms.CharField(max_length=32, widget=forms.PasswordInput)
+# class Login_form(forms.Form):
+# 	username = forms.CharField(label = "Your name",max_length = "100")
+# 	password = forms.CharField(max_length=32, widget=forms.PasswordInput)
 
-	def check_login(self):
-	     username = self.cleaned_data['username']
-	     password = self.cleaned_data['password'] 
-	     user = authenticate(username = username,password = password)
-	     return user
+# 	def check_login(self):
+# 	     username = self.cleaned_data['username']
+# 	     password = self.cleaned_data['password'] 
+# 	     user = authenticate(username = username,password = password)
+# 	     return user
 
 class Sign_up(forms.Form):
 	username = forms.CharField(label = "your name",max_length = "100")

@@ -68,7 +68,8 @@ TEMPLATES = [
     },
 ]
 
-LOGIN_URL = 'stateapp/login/'
+LOGIN_URL = '/stateapp/login/'
+LOGIN_REDIRECT_URL = 'searchstate'
 WSGI_APPLICATION = 'gemmeState.wsgi.application'
 
 

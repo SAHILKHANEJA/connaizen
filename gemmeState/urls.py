@@ -16,12 +16,15 @@ Including another URLconf
 from django.conf.urls import  url
 from django.contrib import admin
 from stateApp import views
+from stateApp.views import SearchStateView
+from django.contrib.auth import views as auth_views
 
 urlpatterns = [
 	url(r'^stateapp/$',views.signup,name='signup'),
-	url(r'^stateapp/login/$',views.login_user,name="login"),
-	url(r'^stateapp/index/$',views.index,name="index"),
-	url(r'^stateapp/savelocation/$',views.savelocation,name="location"),
-	url(r'^stateapp/logout/$',views.logout_user,name='logout'),
+	url(r'^stateapp/login/$',auth_views.login,{'template_name': 'stateApp/login.html'},name="login"),
+    url(r'^stateapp/logout/$',auth_views.logout,{'next_page': '/stateapp/'},name='logout'),
+	url(r'^stateapp/searchState/$',SearchStateView.as_view(),name="searchstate"),
+	url(r'^stateapp/getLocations/$',views.getLocations,name="location"),
     url(r'^admin/', admin.site.urls),
 ]
+11
